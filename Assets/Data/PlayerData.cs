@@ -8,7 +8,9 @@ public class PlayerData : ScriptableObject
     public string PlayerName;
     public Sprite PlayerImage;
     public int TotalWood;
-    public float WoodMultiplyer;
-    public float ClickMultiplyer;
+    public int WoodMultiplyer;
+    public int ClickMultiplyer;
+    public int ClickAdditive;
+    public int ButtonOnePurchases;
 
 }

@@ -17,3 +17,5 @@ MonoBehaviour:
   TotalWood: 0
   WoodMultiplyer: 0
   ClickMultiplyer: 0
+  ClickAdditive: 0
+  ButtonOnePurchases: 0

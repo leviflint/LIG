@@ -5,13 +5,12 @@ using TMPro;
 
 public class Tree : MonoBehaviour
 {
-    public int wood;
-    public TextMeshProUGUI woodCounter;
+    public PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
     {
-        woodCounter.text = "Wood: " + wood;
+        
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class Tree : MonoBehaviour
 
     public void onTreeClick()
     {
-        wood++;
-        woodCounter.text = "Wood: " + wood;
+        playerData.TotalWood += 1 + playerData.ClickAdditive;
+        
     }
 }
