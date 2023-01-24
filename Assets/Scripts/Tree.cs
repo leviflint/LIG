@@ -21,7 +21,7 @@ public class Tree : MonoBehaviour
 
     public void onTreeClick()
     {
-        playerData.TotalWood += 1 + playerData.ClickAdditive;
+        playerData.TotalWood += (1 + playerData.ClickAdditive)*playerData.WoodMultiplyer;
         
     }
 }

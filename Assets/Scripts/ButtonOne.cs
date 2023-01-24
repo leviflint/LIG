@@ -8,7 +8,6 @@ public class ButtonOne : MonoBehaviour
     public PlayerData playerData;
     public int buttonOneBasePrice = 100;
     public int buttonOneCost;
-
     public TextMeshProUGUI buttonOneText;
 
 

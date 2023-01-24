@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Assets\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\ButtonOne.cs" />
+    <Compile Include="Assets\Scripts\ButtonTwo.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Tree.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

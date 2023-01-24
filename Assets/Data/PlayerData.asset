@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerName: Testicles
   PlayerImage: {fileID: 21300000, guid: 1a930585c70b58b4da12c1841c50f02a, type: 3}
-  TotalWood: 0
-  WoodMultiplyer: 0
-  ClickMultiplyer: 0
+  CurrentAxe: {fileID: 0}
+  TotalWood: 999
+  WoodMultiplyer: 1
+  ClickMultiplyer: 1
   ClickAdditive: 0
   ButtonOnePurchases: 0
+  ButtonTwoPurchases: 0
