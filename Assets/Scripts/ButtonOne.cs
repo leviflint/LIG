@@ -14,7 +14,7 @@ public class ButtonOne : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonOneText.text = "+1 wood per click. Cost: " + ButtonOneCost();
+        buttonOneText.text = "" + ButtonOneCost();
     }
 
     public void OnButtonOneClick()
@@ -25,7 +25,7 @@ public class ButtonOne : MonoBehaviour
             playerData.TotalWood -= buttonOneBasePrice;
             playerData.ButtonOnePurchases++;
             playerData.ClickAdditive++;
-            buttonOneText.text = "+1 wood per click. Cost: " + ButtonOneCost();
+            buttonOneText.text = "" + ButtonOneCost();
 
         } if (playerData.ButtonOnePurchases >= 1 && playerData.TotalWood >= ButtonOneCost())
         {
@@ -33,7 +33,7 @@ public class ButtonOne : MonoBehaviour
             playerData.TotalWood -= ButtonOneCost();
             playerData.ButtonOnePurchases++;
             playerData.ClickAdditive++;
-            buttonOneText.text = "+1 wood per click. Cost: " + ButtonOneCost();
+            buttonOneText.text = "" + ButtonOneCost();
         } else
         {
             // Throw Error here

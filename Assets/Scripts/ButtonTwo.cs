@@ -16,7 +16,7 @@ public class ButtonTwo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonTwoText.text = "Upgrade Axe! Cost: " + ButtonTwoCost();
+        buttonTwoText.text = "" + ButtonTwoCost();
     }
 
     // Update is called once per frame
@@ -32,14 +32,14 @@ public class ButtonTwo : MonoBehaviour
             playerData.TotalWood -= buttonTwoBasePrice;
             playerData.ButtonTwoPurchases++;
             playerData.WoodMultiplyer++;
-            buttonTwoText.text = "Upgrade Axe! Cost: " + ButtonTwoCost();
+            buttonTwoText.text = "" + ButtonTwoCost();
             ChangeSprite();
         } if (playerData.ButtonTwoPurchases >= 1 && playerData.TotalWood >= ButtonTwoCost())
         {
             playerData.TotalWood -= ButtonTwoCost();
             playerData.ButtonTwoPurchases++;
             playerData.WoodMultiplyer++;
-            buttonTwoText.text = "Upgrade Axe! Cost: " + ButtonTwoCost();
+            buttonTwoText.text = "" + ButtonTwoCost();
         } else
         {
             // Throw Error Here
