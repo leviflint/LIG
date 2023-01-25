@@ -8,8 +8,8 @@ public class ButtonTwo : MonoBehaviour
 
     public TextMeshProUGUI buttonTwoText;
     public PlayerData playerData;
-    public int buttonTwoCost;
-    public int buttonTwoBasePrice = 1000;
+    private int buttonTwoCost;
+    private int buttonTwoBasePrice = 1000;
     public SpriteRenderer spriteRenderer;
     public Sprite nextItem;
 
@@ -27,21 +27,26 @@ public class ButtonTwo : MonoBehaviour
 
     public void OnButtonTwoClick()
     {
-        if (playerData.ButtonTwoPurchases <= 0)
+        if (playerData.ButtonTwoPurchases <= 0 && playerData.TotalWood >= ButtonTwoCost())
         {
             playerData.TotalWood -= buttonTwoBasePrice;
             playerData.ButtonTwoPurchases++;
             playerData.WoodMultiplyer++;
+            buttonTwoText.text = "Upgrade Axe! Cost: " + ButtonTwoCost();
             ChangeSprite();
-        } else
+        } if (playerData.ButtonTwoPurchases >= 1 && playerData.TotalWood >= ButtonTwoCost())
         {
             playerData.TotalWood -= ButtonTwoCost();
             playerData.ButtonTwoPurchases++;
             playerData.WoodMultiplyer++;
+            buttonTwoText.text = "Upgrade Axe! Cost: " + ButtonTwoCost();
+        } else
+        {
+            // Throw Error Here
         }
     }
 
-    public int ButtonTwoCost()
+    private int ButtonTwoCost()
     {
 
         if (playerData.ButtonTwoPurchases <= 0)
@@ -51,7 +56,7 @@ public class ButtonTwo : MonoBehaviour
         }
         else
         {
-            buttonTwoCost = buttonTwoBasePrice * playerData.ButtonTwoPurchases;
+            buttonTwoCost = buttonTwoBasePrice * (playerData.ButtonTwoPurchases + 1);
             return buttonTwoCost;
         }
         

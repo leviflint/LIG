@@ -20,20 +20,23 @@ public class ButtonOne : MonoBehaviour
     public void OnButtonOneClick()
     {
   
-        if (playerData.ButtonOnePurchases <= 0)
+        if (playerData.ButtonOnePurchases <= 0 && playerData.TotalWood >= buttonOneBasePrice)
         {
             playerData.TotalWood -= buttonOneBasePrice;
             playerData.ButtonOnePurchases++;
             playerData.ClickAdditive++;
             buttonOneText.text = "+1 wood per click. Cost: " + ButtonOneCost();
 
-        } else
+        } if (playerData.ButtonOnePurchases >= 1 && playerData.TotalWood >= ButtonOneCost())
         {
 
             playerData.TotalWood -= ButtonOneCost();
             playerData.ButtonOnePurchases++;
             playerData.ClickAdditive++;
             buttonOneText.text = "+1 wood per click. Cost: " + ButtonOneCost();
+        } else
+        {
+            // Throw Error here
         }
         
     }
