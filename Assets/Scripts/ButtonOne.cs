@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonOne : MonoBehaviour
 {
     public PlayerData playerData;
     public int buttonOneBasePrice = 100;
     public int buttonOneCost;
-    public TextMeshProUGUI buttonOneText;
+    public Text buttonOneText;
 
 
     // Start is called before the first frame update

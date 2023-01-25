@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonTwo : MonoBehaviour
 {
 
-    public TextMeshProUGUI buttonTwoText;
+    public Text buttonTwoText;
     public PlayerData playerData;
     private int buttonTwoCost;
     private int buttonTwoBasePrice = 1000;
