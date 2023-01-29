@@ -26,9 +26,4 @@ public class Player : MonoBehaviour
     {
         woodCounterTab.text = "" + playerData.TotalWood;
     }
-
-    private void SpawnPlayer()
-    {
-        
-    }
 }

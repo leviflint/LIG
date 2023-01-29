@@ -12,6 +12,7 @@ public class ButtonTwo : MonoBehaviour
     private int buttonTwoBasePrice = 1000;
     public SpriteRenderer spriteRenderer;
     public Sprite nextItem;
+    public QuanityData quanityData;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class ButtonTwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        buttonTwoText.text = "" + ButtonTwoCost();
     }
 
     public void OnButtonTwoClick()
@@ -56,7 +57,7 @@ public class ButtonTwo : MonoBehaviour
         }
         else
         {
-            buttonTwoCost = buttonTwoBasePrice * (playerData.ButtonTwoPurchases + 1);
+            buttonTwoCost = (buttonTwoBasePrice * (playerData.ButtonTwoPurchases + 1) * quanityData.currentQuanity);
             return buttonTwoCost;
         }
         

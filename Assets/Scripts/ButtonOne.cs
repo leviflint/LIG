@@ -9,10 +9,16 @@ public class ButtonOne : MonoBehaviour
     public int buttonOneBasePrice = 100;
     public int buttonOneCost;
     public Text buttonOneText;
+    public QuanityData quanityData;
 
 
     // Start is called before the first frame update
     void Start()
+    {
+        buttonOneText.text = "" + ButtonOneCost();
+    }
+
+    void Update()
     {
         buttonOneText.text = "" + ButtonOneCost();
     }
@@ -43,7 +49,7 @@ public class ButtonOne : MonoBehaviour
 
     public int ButtonOneCost()
     {
-        buttonOneCost = buttonOneBasePrice + 50 * playerData.ButtonOnePurchases;
+        buttonOneCost = (buttonOneBasePrice + 50 * playerData.ButtonOnePurchases) * quanityData.currentQuanity;
         return buttonOneCost;
     }
 }
