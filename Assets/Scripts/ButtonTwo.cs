@@ -6,41 +6,48 @@ using UnityEngine.UI;
 public class ButtonTwo : MonoBehaviour
 {
 
-    public Text buttonTwoText;
+    public Text buttonTwoPriceText;
+    public Text buttonTwoDescriptionText;
+    public Text buttonTwoPurchasedText;
     public PlayerData playerData;
-    private int buttonTwoCost;
-    private int buttonTwoBasePrice = 1000;
+    public ItemData itemData;
     public SpriteRenderer spriteRenderer;
     public Sprite nextItem;
-    public QuanityData quanityData;
+    private int itemTwoCost;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        buttonTwoText.text = "" + ButtonTwoCost();
+        buttonTwoPriceText.text = "" + ButtonTwoCost();
+        buttonTwoDescriptionText.text = "x" + itemData.currentQuanity + " " + itemData.itemTwoDescription;
+        buttonTwoPurchasedText.text = "Owned: " + playerData.ItemTwoPurchases;
+        playerData.WoodMultiplyer = playerData.ItemTwoPurchases + 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        buttonTwoText.text = "" + ButtonTwoCost();
+        buttonTwoPriceText.text = "" + ButtonTwoCost();
+        buttonTwoDescriptionText.text = "x" + itemData.currentQuanity + " " + itemData.itemTwoDescription;
+        buttonTwoPurchasedText.text = "Owned: " + playerData.ItemTwoPurchases;
+        playerData.WoodMultiplyer = playerData.ItemTwoPurchases + 1;
     }
 
     public void OnButtonTwoClick()
     {
-        if (playerData.ButtonTwoPurchases <= 0 && playerData.TotalWood >= ButtonTwoCost())
+        if (playerData.ItemTwoPurchases <= 0 && playerData.TotalWood >= ButtonTwoCost())
         {
-            playerData.TotalWood -= buttonTwoBasePrice;
-            playerData.ButtonTwoPurchases++;
-            playerData.WoodMultiplyer++;
-            buttonTwoText.text = "" + ButtonTwoCost();
+            playerData.TotalWood -= itemData.itemTwoBasePrice;
+            playerData.ItemTwoPurchases = playerData.ItemTwoPurchases + itemData.currentQuanity;
+            playerData.WoodMultiplyer = playerData.WoodMultiplyer + itemData.currentQuanity;
             ChangeSprite();
-        } if (playerData.ButtonTwoPurchases >= 1 && playerData.TotalWood >= ButtonTwoCost())
+        } if (playerData.ItemTwoPurchases >= 1 && playerData.TotalWood >= ButtonTwoCost())
         {
             playerData.TotalWood -= ButtonTwoCost();
-            playerData.ButtonTwoPurchases++;
-            playerData.WoodMultiplyer++;
-            buttonTwoText.text = "" + ButtonTwoCost();
+            playerData.ItemTwoPurchases = playerData.ItemTwoPurchases + itemData.currentQuanity;
+            playerData.WoodMultiplyer = playerData.WoodMultiplyer + itemData.currentQuanity;
+            buttonTwoDescriptionText.text = "x" + itemData.currentQuanity + " " + itemData.itemTwoDescription;
         } else
         {
             // Throw Error Here
@@ -50,15 +57,15 @@ public class ButtonTwo : MonoBehaviour
     private int ButtonTwoCost()
     {
 
-        if (playerData.ButtonTwoPurchases <= 0)
+        if (playerData.ItemTwoPurchases <= 0)
         {
-            buttonTwoCost = buttonTwoBasePrice;
-            return buttonTwoCost;
+            itemTwoCost = itemData.itemTwoBasePrice * itemData.currentQuanity;
+            return itemTwoCost;
         }
         else
         {
-            buttonTwoCost = (buttonTwoBasePrice * (playerData.ButtonTwoPurchases + 1) * quanityData.currentQuanity);
-            return buttonTwoCost;
+            itemTwoCost = (itemData.itemTwoBasePrice * (playerData.ItemTwoPurchases + 1)) * itemData.currentQuanity;
+            return itemTwoCost;
         }
         
     }

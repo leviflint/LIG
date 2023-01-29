@@ -6,40 +6,45 @@ using UnityEngine.UI;
 public class ButtonOne : MonoBehaviour
 {
     public PlayerData playerData;
-    public int buttonOneBasePrice = 100;
     public int buttonOneCost;
-    public Text buttonOneText;
-    public QuanityData quanityData;
+    public Text buttonOnePriceText;
+    public Text buttonOneDescriptionText;
+    public Text buttonOnePurchasedText;
+    public ItemData itemData;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        buttonOneText.text = "" + ButtonOneCost();
+        buttonOnePriceText.text = "" + ButtonOneCost();
+        buttonOneDescriptionText.text = "+" + itemData.currentQuanity + " " + itemData.itemOneDescription;
+        buttonOnePurchasedText.text = "Owned: " + playerData.ItemOnePurchases;
+        playerData.ClickAdditive = playerData.ItemOnePurchases;
     }
 
     void Update()
     {
-        buttonOneText.text = "" + ButtonOneCost();
+        buttonOnePriceText.text = "" + ButtonOneCost();
+        buttonOneDescriptionText.text = "+" + itemData.currentQuanity + " " + itemData.itemOneDescription;
+        buttonOnePurchasedText.text = "Owned: " + playerData.ItemOnePurchases;
+        playerData.ClickAdditive = playerData.ItemOnePurchases;
     }
 
     public void OnButtonOneClick()
     {
   
-        if (playerData.ButtonOnePurchases <= 0 && playerData.TotalWood >= buttonOneBasePrice)
+        if (playerData.ItemOnePurchases <= 0 && playerData.TotalWood >= itemData.itemOneBasePrice)
         {
-            playerData.TotalWood -= buttonOneBasePrice;
-            playerData.ButtonOnePurchases++;
-            playerData.ClickAdditive++;
-            buttonOneText.text = "" + ButtonOneCost();
+            playerData.TotalWood -= itemData.itemOneBasePrice;
+            playerData.ItemOnePurchases = playerData.ItemOnePurchases + itemData.currentQuanity;
+            playerData.ClickAdditive = playerData.ClickAdditive + itemData.currentQuanity;
 
-        } if (playerData.ButtonOnePurchases >= 1 && playerData.TotalWood >= ButtonOneCost())
+        } if (playerData.ItemOnePurchases >= 1 && playerData.TotalWood >= ButtonOneCost())
         {
 
             playerData.TotalWood -= ButtonOneCost();
-            playerData.ButtonOnePurchases++;
-            playerData.ClickAdditive++;
-            buttonOneText.text = "" + ButtonOneCost();
+            playerData.ItemOnePurchases = playerData.ItemOnePurchases + itemData.currentQuanity;
+            playerData.ClickAdditive = playerData.ClickAdditive + itemData.currentQuanity;
         } else
         {
             // Throw Error here
@@ -49,7 +54,7 @@ public class ButtonOne : MonoBehaviour
 
     public int ButtonOneCost()
     {
-        buttonOneCost = (buttonOneBasePrice + 50 * playerData.ButtonOnePurchases) * quanityData.currentQuanity;
+        buttonOneCost = (itemData.itemOneBasePrice + 50 * playerData.ItemOnePurchases) * itemData.currentQuanity;
         return buttonOneCost;
     }
 }

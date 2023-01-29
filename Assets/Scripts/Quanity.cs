@@ -6,17 +6,18 @@ using UnityEngine.UI;
 public class Quanity : MonoBehaviour
 {
 
-    public QuanityData quanityData;
+    public ItemData itemData;
     public Text quanityButtonOneText;
     public Text quanityButtonTwoText;
     public Text quanityButtonThreeText;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        quanityButtonOneText.text = "x" + quanityData.quanityOne;
-        quanityButtonTwoText.text = "x" + quanityData.quanityTwo;
-        quanityButtonThreeText.text = "x" + quanityData.quanityThree;
+        quanityButtonOneText.text = "x" + itemData.quanityOne;
+        quanityButtonTwoText.text = "x" + itemData.quanityTwo;
+        quanityButtonThreeText.text = "x" + itemData.quanityThree;
     }
 
     // Update is called once per frame
@@ -27,25 +28,16 @@ public class Quanity : MonoBehaviour
 
     public void QuanityButtonOneClick()
     {
-        quanityData.currentQuanity = quanityData.quanityOne;
-        quanityData.ButtonOneActive = true;
-        quanityData.ButtonTwoActive = false;
-        quanityData.ButtonThreeActive = false;
+        itemData.currentQuanity = itemData.quanityOne;
     }
 
     public void QuanityButtonTwoClick()
     {
-        quanityData.currentQuanity = quanityData.quanityTwo;
-        quanityData.ButtonOneActive = false;
-        quanityData.ButtonTwoActive = true;
-        quanityData.ButtonThreeActive = false;
+        itemData.currentQuanity = itemData.quanityTwo;
     }
 
     public void QuanityButtonThreeClick()
     {
-        quanityData.currentQuanity = quanityData.quanityThree;
-        quanityData.ButtonOneActive = false;
-        quanityData.ButtonTwoActive = false;
-        quanityData.ButtonThreeActive = true;
+        itemData.currentQuanity = itemData.quanityThree;
     }
 }

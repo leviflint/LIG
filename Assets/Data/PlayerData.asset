@@ -15,9 +15,8 @@ MonoBehaviour:
   PlayerName: Testicles
   PlayerImage: {fileID: 21300000, guid: 1a930585c70b58b4da12c1841c50f02a, type: 3}
   CurrentAxe: {fileID: 0}
-  TotalWood: 1226
-  WoodMultiplyer: 2
-  ClickMultiplyer: 1
-  ClickAdditive: 9
-  ButtonOnePurchases: 9
-  ButtonTwoPurchases: 1
+  TotalWood: 0
+  ClickAdditive: 0
+  ItemOnePurchases: 0
+  WoodMultiplyer: 1
+  ItemTwoPurchases: 0
